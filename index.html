@@ -27,7 +27,7 @@
         overflow:hidden;
 
         background-color: #010a00;
-        background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+        background-image: url("https://transparenttextures.com/patterns/black-paper.png");
       }
 
       body * {
@@ -65,13 +65,19 @@
 
     <div class="board">
       <h1>Now Serving</h1>
-      <h2 id="numberDisplay">1</h2>
+      <h2 id="numberDisplay">00</h2>
     </div>
 
-    <button type="button" id="button">next</button>
+    <form id="goForIt">
+      <button type="button" id="button">next</button>
+    </form>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-      let count = 1;
+      // let count = 1;
+      let count = prompt('What number should we start at? (Hit Next to get started)') - 1;
       let output = document.getElementById("numberDisplay");
 
       function increase() {
@@ -81,7 +87,21 @@
       }
 
       const nextCustomer = document.getElementById("button");
+
       nextCustomer.addEventListener('click', increase );
+
+
+      // ------------------------
+
+      // nextCustomer.addEventListener('submit', (e)=> {
+      //   e.preventDefault();
+      //   increase();
+      // });
+
+
+      // -------------------------
+
+
     </script>
   </body>
 </html>
