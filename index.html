@@ -60,16 +60,25 @@
 
       }
 
+      button {
+        opacity: 0;
+        transition: .5s;
+      }
+
+      button:hover {
+        opacity: 1;
+      }
+
     </style>
 
 
     <div class="board">
-      <h1>Now Serving</h1>
-      <h2 id="numberDisplay">00</h2>
+      <h1 id="nowServing">Hit enter to get started!</h1>
+      <h2 id="numberDisplay">XX</h2>
     </div>
 
     <form id="goForIt">
-      <button type="button" id="button">next</button>
+      <button type="button" id="button" autofocus>next</button>
     </form>
 
 
@@ -77,13 +86,19 @@
 
     <script>
       // let count = 1;
-      let count = prompt('What number should we start at? (Hit Next to get started)') - 1;
+      let count = prompt('What number should we start at?') - 1;
       let output = document.getElementById("numberDisplay");
+      let nowServing = document.getElementById("nowServing");
 
       function increase() {
         count++;
-        console.log(count);
-        output.textContent = count;
+        // console.log(count);
+        nowServing.textContent = 'Now Serving'
+        if (count<10){
+          output.textContent = `0${count}`;
+        } else {
+          output.textContent = count;
+        }
       }
 
       const nextCustomer = document.getElementById("button");
